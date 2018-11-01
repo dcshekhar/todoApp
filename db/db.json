@@ -1,0 +1,28 @@
+{
+  "todos": [
+    {
+      "id": 1,
+      "task": "Learn Angular",
+      "isCompleted": true,
+      "isEditing": false
+    },
+    {
+      "task": "ppopo",
+      "isEditing": false,
+      "isCompleted": false,
+      "id": 4
+    },
+    {
+      "task": "This is a New Todo",
+      "isEditing": false,
+      "isCompleted": false,
+      "id": 5
+    },
+    {
+      "task": "lorem",
+      "isEditing": false,
+      "isCompleted": false,
+      "id": 6
+    }
+  ]
+}

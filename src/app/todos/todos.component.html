@@ -1,0 +1,32 @@
+<div class="col-md-12">
+  <label for="newTodo">Create New Todo</label>
+  <div class="input-group align-items-center">
+    <input type="text" name="newTodo" id="newTodo" class="form-control" #newTodoName>
+    <div class="input-group-append">
+      <button class="btn btn-success" (click)="createNewTodo(newTodoName.value); newTodoName.value = ''">Create</button>
+    </div>
+  </div>
+</div>
+<div class="col-md-12 mt-2">
+  <div class="row mt-1" *ngFor="let todo of todosList">
+    <div class="col-md-2 d-flex align-items-center">
+      <div class="form-check-inline">
+        <label class="form-check-label">
+          <input type="checkbox" name="isCompleted" id="todoCompleted" [checked]="todo.isCompleted" class="form-check-input"
+            (click)="setTodoStatus(todo)">
+        </label>
+      </div>
+    </div>
+    <div class="col-md-6 d-flex align-items-center">
+      <span [hidden]="todo.isEditing" [class.strike]="todo.isCompleted">{{todo.task}}</span>
+      <input type="text" class="form-control" [value]="todo.task" [hidden]="!todo.isEditing" #editTodoControl>
+    </div>
+    <div class="col-md-2 d-flex align-items-center">
+      <button class="w-100 btn btn-secondary" [hidden]="todo.isEditing" (click)="editTodo(todo)">Edit</button>
+      <button class="w-100 btn btn-warning" [hidden]="!todo.isEditing" (click)="editTodo(todo,editTodoControl.value)">Update</button>
+    </div>
+    <div class="col-md-2 d-flex align-items-center">
+      <button class="w-100 btn btn-danger" (click)="deleteTodo(todo.id)">Delete</button>
+    </div>
+  </div>
+</div>
